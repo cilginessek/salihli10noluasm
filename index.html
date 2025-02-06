@@ -3,11 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Salihli 10 Nolu ASM - Ana Sayfa</title>
+  <title>Salihli 10 Nolu ASM</title>
   <link rel="stylesheet" href="styles.css">
+  <!-- Font Awesome için CDN -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
+  <!-- Header ve Navigasyon -->
   <header>
     <div class="header-content">
       <img src="logo.png" alt="ASM Logo" class="logo">
@@ -25,14 +27,14 @@
       </ul>
     </nav>
   </header>
-  
+
   <main>
-    <!-- Girişte büyük ASM resmi -->
+    <!-- Giriş Bölümü: Büyük ASM Görseli -->
     <section id="landing">
       <img src="asm-large.jpg" alt="ASM Görsel" class="asm-large">
     </section>
     
-    <!-- İki AHB Birimine Ait Kutular -->
+    <!-- AHB Birimleri: İki Kutu -->
     <section id="ahb-units">
       <h2>AHB Birimleri</h2>
       <div class="ahb-units">
@@ -41,7 +43,7 @@
           <img src="dr-burak.jpg" alt="Dr. Burak Yasir Çallı" class="doctor-img">
           <ul>
             <li><strong>Aile Hekimi:</strong> Dr. BURAK YASİR ÇALLI</li>
-            <li><strong>Hemşire:</strong> ÖZLEM ÇIBIKOĞLU</li>
+            <li><strong>Sağlık Personeli:</strong> ÖZLEM ÇIBIKOĞLU</li>
           </ul>
         </div>
         <div class="ahb-card">
@@ -49,24 +51,52 @@
           <img src="dr-ceyda.jpg" alt="Dr. Ceyda Uzunoğlu Altan" class="doctor-img">
           <ul>
             <li><strong>Aile Hekimi:</strong> Dr. CEYDA UZUNOĞLU ALTAN</li>
-            <li><strong>Hemşire:</strong> EMİNE ASLAN</li>
+            <li><strong>Sağlık Personeli:</strong> EMİNE ASLAN</li>
           </ul>
         </div>
       </div>
     </section>
     
-    <!-- Yardımcı Çalışanlar Kutusu -->
+    <!-- Ortak Çalışanlar Kutusu -->
     <section id="yardimci-calisanlar">
-      <h2>Yardımcı Çalışanlar</h2>
+      <h2><i class="fas fa-users"></i> Ortak Çalışanlar</h2>
       <div class="ahb-card ortak-calisan">
         <ul>
-          <li><strong>Yardımcı Çalışanlar:</strong> AKİLE URSAVAŞ       ,        SİBEL YAZICI</li>
+          <li><strong>Yardımcı Çalışanlar:</strong> AKİLE URSAVAŞ, SİBEL YAZICI</li>
         </ul>
       </div>
     </section>
     
+    <!-- Ana Sayfanın En Altında Canlı Bilgiler Bölümü -->
+    <section id="live-info">
+      <!-- e-Nabız Görsel Butonu -->
+      <div class="live-item">
+        <h3>e-Nabız Girişi</h3>
+        <a href="https://enabiz.gov.tr/" target="_blank">
+          <img src="enabiz-logo.png" alt="e-Nabız" class="enabiz-logo">
+        </a>
+      </div>
+      <!-- Gerçek Zamanlı Hava Durumu -->
+      <div class="live-item weather-display">
+        <h3>Hava Durumu</h3>
+        <div class="weather-info">
+          <img src="sun.png" alt="Hava Durumu" class="weather-icon">
+          <span class="temperature">--°C</span>
+        </div>
+      </div>
+      <!-- Konum (Google Maps Embed) -->
+      <div class="live-item map-display">
+        <h3>Konum</h3>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3124.181040790554!2d28.013746776033!3d38.47161667177628!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14bdb2d8c3798d4d%3A0xab3fef7e8d7e3b4f!2sSalihli%2010%20Nolu%20Aile%20Sa%C4%9Fl%C4%B1%C4%9F%C4%B1%20Merkezi!5e0!3m2!1str!2str!4v1717429863630!5m2!1str!2str" 
+                width="100%" 
+                height="300" 
+                style="border:0;" 
+                allowfullscreen></iframe>
+      </div>
+    </section>
+    
   </main>
-  
+
   <footer>
     <div class="footer-content">
       <img src="saglik-bakanligi-logo.png" alt="Sağlık Bakanlığı Logo" class="footer-logo">
@@ -78,5 +108,24 @@
       </div>
     </div>
   </footer>
+  
+  <!-- Hava Durumu API Entegrasyonu İçin JavaScript (OpenWeatherMap Örneği) -->
+  <script>
+    const apiKey = 'YOUR_API_KEY'; // OpenWeatherMap API anahtarınızı buraya ekleyin
+    const city = 'Manisa';
+    const weatherUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiKey}`;
+
+    fetch(weatherUrl)
+      .then(response => response.json())
+      .then(data => {
+         const temp = Math.round(data.main.temp);
+         document.querySelector('.temperature').textContent = temp + '°C';
+
+         const iconCode = data.weather[0].icon;
+         document.querySelector('.weather-icon').src = `https://openweathermap.org/img/wn/${iconCode}@2x.png`;
+         document.querySelector('.weather-icon').alt = data.weather[0].description;
+      })
+      .catch(error => console.error('Hata:', error));
+  </script>
 </body>
 </html>
