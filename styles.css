@@ -162,13 +162,13 @@ main {
   height: 40px;
 }
 
-/* Konum: iframe */
+/* Konum (iframe) */
 .map-display iframe {
   border-radius: 8px;
   margin-top: 1rem;
 }
 
-/* Genel Section Stilleri (opsiyonel, ekstra içerik için) */
+/* Genel Section Stilleri */
 section {
   padding: 2rem;
   margin: 2rem auto;
