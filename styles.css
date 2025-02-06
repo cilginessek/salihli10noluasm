@@ -216,3 +216,13 @@ footer {
     flex-direction: column;
   }
 }
+/* Tam ekran resim için stil */
+.full-width-img {
+  width: 100%; /* Resmi sayfanın genişliğine sığdırır */
+  height: auto; /* Oranları korur */
+  max-width: 1200px; /* Maksimum genişlik sınırı */
+  margin: 2rem auto; /* Üst ve alt boşluk, otomatik yatay hizalama */
+  display: block; /* Resmi blok öğe yapar */
+  border-radius: 10px; /* Köşeleri yuvarlar */
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Hafif gölge efekti */
+}
