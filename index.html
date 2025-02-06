@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Salihli 10 Nolu ASM</title>
   <link rel="stylesheet" href="styles.css">
-  <!-- Font Awesome için CDN -->
+  <!-- Font Awesome CDN -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
@@ -76,7 +76,7 @@
           <img src="enabiz-logo.png" alt="e-Nabız" class="enabiz-logo">
         </a>
       </div>
-      <!-- Gerçek Zamanlı Hava Durumu -->
+      <!-- Gerçek Zamanlı Hava Durumu (OpenWeatherMap API ile güncellenecek) -->
       <div class="live-item weather-display">
         <h3>Hava Durumu</h3>
         <div class="weather-info">
@@ -84,14 +84,17 @@
           <span class="temperature">--°C</span>
         </div>
       </div>
-      <!-- Konum (Google Maps Embed) -->
+      <!-- Konum (Google Maps Embed: Güncellenmiş iframe) -->
       <div class="live-item map-display">
         <h3>Konum</h3>
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3124.181040790554!2d28.013746776033!3d38.47161667177628!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14bdb2d8c3798d4d%3A0xab3fef7e8d7e3b4f!2sSalihli%2010%20Nolu%20Aile%20Sa%C4%9Fl%C4%B1%C4%9F%C4%B1%20Merkezi!5e0!3m2!1str!2str!4v1717429863630!5m2!1str!2str" 
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d780.7696712596367!2d28.119378391371207!3d38.485832217269596!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14b85b006dd4fcf5%3A0x332c249013eccff7!2zRHIuIEhheWRhciBLYXlhIEFpbGUgU2HEn2zEscSfxLEgTWVya2V6aQ!5e0!3m2!1str!2str!4v1738863175586!5m2!1str!2str" 
                 width="100%" 
                 height="300" 
                 style="border:0;" 
-                allowfullscreen></iframe>
+                allowfullscreen="" 
+                loading="lazy" 
+                referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
       </div>
     </section>
     
@@ -109,7 +112,7 @@
     </div>
   </footer>
   
-  <!-- Hava Durumu API Entegrasyonu İçin JavaScript (OpenWeatherMap Örneği) -->
+  <!-- Hava Durumu API Entegrasyonu (OpenWeatherMap Örneği) -->
   <script>
     const apiKey = 'YOUR_API_KEY'; // OpenWeatherMap API anahtarınızı buraya ekleyin
     const city = 'Manisa';
