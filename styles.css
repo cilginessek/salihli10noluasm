@@ -1,53 +1,152 @@
-/* Yeni Eklenen Stiller */
-.kadro-buttons {
-  display: flex;
-  justify-content: center;
-  gap: 2rem;
-  margin: 3rem 0;
-  flex-wrap: wrap;
-}
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Salihli 10 Nolu ASM</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    /* Lacivert tarzı eski şablon için stil ayarları */
+    body {
+      font-family: Arial, sans-serif;
+      color: #2c3e50;
+      margin: 0;
+      padding: 0;
+    }
 
-.kadro-btn {
-  padding: 1.5rem 3rem;
-  background: #2c3e50;
-  color: white;
-  border-radius: 8px;
-  text-decoration: none;
-  transition: transform 0.3s;
-  font-size: 1.2rem;
-}
+    header {
+      background-color: #2c3e50;
+      color: white;
+      padding: 1rem;
+    }
 
-.kadro-btn:hover {
-  transform: translateY(-3px);
-  background: #3498db;
-}
+    .header-content {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
 
-.kadro-section {
-  display: none;
-  padding: 3rem 0;
-}
+    nav ul {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      gap: 1rem;
+    }
 
-.kadro-section:target {
-  display: block;
-}
+    nav ul li {
+      display: inline;
+    }
 
-/* Hava Durumu Büyütme */
-.weather-display {
-  padding: 2rem;
-  background: #f8f9fa;
-  border-radius: 10px;
-}
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      padding: 0.5rem 1rem;
+      transition: background-color 0.3s;
+    }
 
-.weather-info {
-  font-size: 2rem;
-}
+    nav ul li a:hover {
+      background-color: #34495e;
+      border-radius: 4px;
+    }
 
-.weather-icon {
-  width: 80px;
-  height: 80px;
-}
+    footer {
+      background-color: #2c3e50;
+      color: white;
+      text-align: center;
+      padding: 1rem 0;
+    }
 
-.temperature {
-  font-size: 2.5rem;
-  font-weight: bold;
-}
+    .footer-logo {
+      max-width: 100px;
+    }
+
+    .weather-display {
+      font-size: 1.5rem;
+      color: #2c3e50;
+    }
+
+    .weather-info .temperature {
+      font-size: 2.5rem;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-content">
+      <img src="logo.png" alt="ASM Logo" class="logo">
+      <h1>Salihli 10 Nolu Aile Sağlığı Merkezi</h1>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="index.html"><i class="fas fa-home"></i> Ana Sayfa</a></li>
+        <li><a href="kadromuz.html"><i class="fas fa-users"></i> Kadromuz</a></li>
+        <li><a href="hizmetler.html"><i class="fas fa-hand-holding-medical"></i> Hizmetler</a></li>
+        <li><a href="calismasaatleri.html"><i class="fas fa-clock"></i> Çalışma Saatleri</a></li>
+        <li><a href="esnekmesai.html"><i class="fas fa-calendar-alt"></i> Esnek Mesai</a></li>
+        <li><a href="ekbilgiler.html"><i class="fas fa-info"></i> Ek Bilgiler</a></li>
+        <li><a href="iletisim.html"><i class="fas fa-phone"></i> İletişim</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section id="landing">
+      <img src="asm-large.jpg" alt="ASM Görsel" class="asm-large">
+    </section>
+
+    <!-- Canlı Bilgiler Bölümü -->
+    <section id="live-info">
+      <div class="live-item">
+        <h3>e-Nabız Girişi</h3>
+        <a href="https://enabiz.gov.tr/" target="_blank">
+          <img src="enabiz-logo.png" alt="e-Nabız" class="enabiz-logo">
+        </a>
+      </div>
+      <div class="live-item weather-display">
+        <h3>Hava Durumu</h3>
+        <div class="weather-info">
+          <img src="sun.png" alt="Hava Durumu" class="weather-icon">
+          <span class="temperature">--°C</span>
+        </div>
+      </div>
+      <div class="live-item map-display">
+        <h3>Konum</h3>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d780.7696712596367!2d28.119378391371207!3d38.485832217269596!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14b85b006dd4fcf5%3A0x332c249013eccff7!2zRHIuIEhheWRhciBLYXlhIEFpbGUgU2HEn2zEscSfxLEgTWVya2V6aQ!5e0!3m2!1str!2str!4v1738863175586!5m2!1str!2str" 
+                width="100%" 
+                height="300" 
+                style="border:0;" 
+                allowfullscreen="" 
+                loading="lazy" 
+                referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-content">
+      <img src="saglik-bakanligi-logo.png" alt="Sağlık Bakanlığı Logo" class="footer-logo">
+      <p>&copy; 2025 Salihli 10 Nolu ASM | Tüm Hakları Saklıdır</p>
+    </div>
+  </footer>
+
+  <script>
+    const apiKey = '253bf9a923e85601072569e495ccbd27';
+    const city = 'Manisa,TR';
+    const weatherUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiKey}`;
+
+    fetch(weatherUrl)
+      .then(response => response.json())
+      .then(data => {
+         const temp = Math.round(data.main.temp);
+         document.querySelector('.temperature').textContent = temp + '°C';
+         const iconCode = data.weather[0].icon;
+         document.querySelector('.weather-icon').src = `https://openweathermap.org/img/wn/${iconCode}@2x.png`;
+         document.querySelector('.weather-icon').alt = data.weather[0].description;
+      })
+      .catch(error => console.error('Hata:', error));
+  </script>
+</body>
+</html>
