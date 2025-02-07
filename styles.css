@@ -1,5 +1,5 @@
 /* Yeni Eklenen Stiller */
-.kadro-sekmeler {
+.kadro-buttons {
   display: flex;
   justify-content: center;
   gap: 2rem;
@@ -7,7 +7,7 @@
   flex-wrap: wrap;
 }
 
-.kadro-sekme {
+.kadro-btn {
   padding: 1.5rem 3rem;
   background: #2c3e50;
   color: white;
@@ -17,7 +17,7 @@
   font-size: 1.2rem;
 }
 
-.kadro-sekme:hover {
+.kadro-btn:hover {
   transform: translateY(-3px);
   background: #3498db;
 }
@@ -50,14 +50,4 @@
 .temperature {
   font-size: 2.5rem;
   font-weight: bold;
-}
-
-/* e-Nabız Butonu */
-.enabiz-logo {
-  width: 150px;
-  transition: transform 0.3s;
-}
-
-.enabiz-logo:hover {
-  transform: scale(1.05);
 }
