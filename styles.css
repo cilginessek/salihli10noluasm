@@ -1,152 +1,228 @@
-<!DOCTYPE html>
-<html lang="tr">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Salihli 10 Nolu ASM</title>
-  <link rel="stylesheet" href="styles.css">
-  <style>
-    /* Lacivert tarzı eski şablon için stil ayarları */
-    body {
-      font-family: Arial, sans-serif;
-      color: #2c3e50;
-      margin: 0;
-      padding: 0;
-    }
+:root {
+  --primary-color: #2c3e50;
+  --secondary-color: #3498db;
+  --accent-color: #e74c3c;
+  --text-color: #333;
+}
 
-    header {
-      background-color: #2c3e50;
-      color: white;
-      padding: 1rem;
-    }
+body {
+  font-family: 'Arial', sans-serif;
+  line-height: 1.6;
+  color: var(--text-color);
+  background: #f9f9f9;
+  margin: 0;
+  padding: 0;
+}
 
-    .header-content {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
+/* Header ve Navigasyon */
+header {
+  background: linear-gradient(rgba(44,62,80,0.9), rgba(44,62,80,0.9)),
+              url('header-bg.jpg') center/cover;
+  color: white;
+  padding: 1rem;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
 
-    nav ul {
-      list-style-type: none;
-      padding: 0;
-      margin: 0;
-      display: flex;
-      gap: 1rem;
-    }
+.header-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
 
-    nav ul li {
-      display: inline;
-    }
+.logo {
+  height: 80px;
+  margin-right: 20px;
+}
 
-    nav ul li a {
-      color: white;
-      text-decoration: none;
-      padding: 0.5rem 1rem;
-      transition: background-color 0.3s;
-    }
+nav ul {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  padding: 1rem;
+  background: var(--primary-color);
+  margin: 0;
+  list-style: none;
+}
 
-    nav ul li a:hover {
-      background-color: #34495e;
-      border-radius: 4px;
-    }
+nav a {
+  color: white;
+  text-decoration: none;
+  font-size: 1.1rem;
+  transition: color 0.3s;
+}
 
-    footer {
-      background-color: #2c3e50;
-      color: white;
-      text-align: center;
-      padding: 1rem 0;
-    }
+nav a:hover {
+  color: var(--secondary-color);
+}
 
-    .footer-logo {
-      max-width: 100px;
-    }
+/* Main Bölümler */
+main {
+  margin: 2rem auto;
+  max-width: 1200px;
+}
 
-    .weather-display {
-      font-size: 1.5rem;
-      color: #2c3e50;
-    }
+/* Landing: Büyük ASM Görseli */
+#landing {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+.asm-large {
+  width: 100%;
+  max-height: 500px;
+  object-fit: cover;
+  border-radius: 10px;
+}
 
-    .weather-info .temperature {
-      font-size: 2.5rem;
-      font-weight: bold;
-    }
-  </style>
-</head>
-<body>
-  <header>
-    <div class="header-content">
-      <img src="logo.png" alt="ASM Logo" class="logo">
-      <h1>Salihli 10 Nolu Aile Sağlığı Merkezi</h1>
-    </div>
-    <nav>
-      <ul>
-        <li><a href="index.html"><i class="fas fa-home"></i> Ana Sayfa</a></li>
-        <li><a href="kadromuz.html"><i class="fas fa-users"></i> Kadromuz</a></li>
-        <li><a href="hizmetler.html"><i class="fas fa-hand-holding-medical"></i> Hizmetler</a></li>
-        <li><a href="calismasaatleri.html"><i class="fas fa-clock"></i> Çalışma Saatleri</a></li>
-        <li><a href="esnekmesai.html"><i class="fas fa-calendar-alt"></i> Esnek Mesai</a></li>
-        <li><a href="ekbilgiler.html"><i class="fas fa-info"></i> Ek Bilgiler</a></li>
-        <li><a href="iletisim.html"><i class="fas fa-phone"></i> İletişim</a></li>
-      </ul>
-    </nav>
-  </header>
+/* AHB Birimleri Kutuları */
+#ahb-units {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+.ahb-units {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.ahb-card {
+  background: #f8f9fa;
+  padding: 1.5rem;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  flex: 1;
+  min-width: 300px;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+.doctor-img {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin: 1rem auto;
+  border: 3px solid var(--secondary-color);
+}
 
-  <main>
-    <section id="landing">
-      <img src="asm-large.jpg" alt="ASM Görsel" class="asm-large">
-    </section>
+/* Ortak Çalışanlar Kutusu */
+#yardimci-calisanlar {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+.ortak-calisan {
+  margin: 0 auto;
+  max-width: 600px;
+  padding: 1rem;
+  background: #f8f9fa;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
 
-    <!-- Canlı Bilgiler Bölümü -->
-    <section id="live-info">
-      <div class="live-item">
-        <h3>e-Nabız Girişi</h3>
-        <a href="https://enabiz.gov.tr/" target="_blank">
-          <img src="enabiz-logo.png" alt="e-Nabız" class="enabiz-logo">
-        </a>
-      </div>
-      <div class="live-item weather-display">
-        <h3>Hava Durumu</h3>
-        <div class="weather-info">
-          <img src="sun.png" alt="Hava Durumu" class="weather-icon">
-          <span class="temperature">--°C</span>
-        </div>
-      </div>
-      <div class="live-item map-display">
-        <h3>Konum</h3>
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d780.7696712596367!2d28.119378391371207!3d38.485832217269596!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14b85b006dd4fcf5%3A0x332c249013eccff7!2zRHIuIEhheWRhciBLYXlhIEFpbGUgU2HEn2zEscSfxLEgTWVya2V6aQ!5e0!3m2!1str!2str!4v1738863175586!5m2!1str!2str" 
-                width="100%" 
-                height="300" 
-                style="border:0;" 
-                allowfullscreen="" 
-                loading="lazy" 
-                referrerpolicy="no-referrer-when-downgrade">
-        </iframe>
-      </div>
-    </section>
-  </main>
+/* Live Bilgiler Bölümü (e-Nabız, Hava Durumu, Konum) */
+#live-info {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+  padding: 2rem;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  margin-bottom: 2rem;
+}
 
-  <footer>
-    <div class="footer-content">
-      <img src="saglik-bakanligi-logo.png" alt="Sağlık Bakanlığı Logo" class="footer-logo">
-      <p>&copy; 2025 Salihli 10 Nolu ASM | Tüm Hakları Saklıdır</p>
-    </div>
-  </footer>
+.live-item {
+  flex: 1;
+  min-width: 280px;
+  text-align: center;
+}
 
-  <script>
-    const apiKey = '253bf9a923e85601072569e495ccbd27';
-    const city = 'Manisa,TR';
-    const weatherUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiKey}`;
+/* e-Nabız Görsel Butonu */
+.enabiz-logo {
+  width: 150px;
+  transition: transform 0.3s;
+}
+.enabiz-logo:hover {
+  transform: scale(1.05);
+}
 
-    fetch(weatherUrl)
-      .then(response => response.json())
-      .then(data => {
-         const temp = Math.round(data.main.temp);
-         document.querySelector('.temperature').textContent = temp + '°C';
-         const iconCode = data.weather[0].icon;
-         document.querySelector('.weather-icon').src = `https://openweathermap.org/img/wn/${iconCode}@2x.png`;
-         document.querySelector('.weather-icon').alt = data.weather[0].description;
-      })
-      .catch(error => console.error('Hata:', error));
-  </script>
-</body>
-</html>
+/* Hava Durumu */
+.weather-display .weather-info {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-size: 1.2rem;
+  margin-top: 0.5rem;
+}
+.weather-icon {
+  width: 40px;
+  height: 40px;
+}
+
+/* Konum (iframe) */
+.map-display iframe {
+  border-radius: 8px;
+  margin-top: 1rem;
+}
+
+/* Genel Section Stilleri */
+section {
+  padding: 2rem;
+  margin: 2rem auto;
+  background: white;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  border-radius: 10px;
+}
+
+/* Footer */
+footer {
+  background: var(--primary-color);
+  color: white;
+  text-align: center;
+  padding: 2rem;
+  margin-top: 3rem;
+}
+.footer-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+.footer-logo {
+  height: 60px;
+}
+.social-media a {
+  color: white;
+  font-size: 1.5rem;
+  margin: 0 10px;
+  transition: color 0.3s;
+}
+.social-media a:hover {
+  color: var(--secondary-color);
+}
+
+/* Responsive Tasarım */
+@media (max-width: 768px) {
+  .ahb-units {
+    flex-direction: column;
+  }
+  #live-info {
+    flex-direction: column;
+  }
+  .contact-container {
+    flex-direction: column;
+  }
+}
+/* Tam ekran resim için stil */
+.full-width-img {
+  width: 100%; /* Resmi sayfanın genişliğine sığdırır */
+  height: auto; /* Oranları korur */
+  max-width: 1200px; /* Maksimum genişlik sınırı */
+  margin: 2rem auto; /* Üst ve alt boşluk, otomatik yatay hizalama */
+  display: block; /* Resmi blok öğe yapar */
+  border-radius: 10px; /* Köşeleri yuvarlar */
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Hafif gölge efekti */
+}
