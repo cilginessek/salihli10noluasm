@@ -1,185 +1,193 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="tr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kadromuz</title>
-    <style>
-        /* Genel Stil */
-        body {
-            font-family: 'Arial', sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f9;
-            color: #333;
-        }
-
-        /* Başlık ve Menü */
-        header {
-            background: #007BFF;
-            color: white;
-            padding: 10px 0;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-
-        nav ul {
-            list-style: none;
-            text-align: center;
-            margin: 0;
-            padding: 0;
-        }
-
-        nav ul li {
-            display: inline-block;
-            margin: 0 15px;
-        }
-
-        nav ul li a {
-            color: white;
-            text-decoration: none;
-            font-weight: bold;
-            padding: 5px 10px;
-        }
-
-        nav ul li a:hover {
-            background: white;
-            color: #007BFF;
-            border-radius: 5px;
-        }
-
-        /* Ana Bölüm */
-        main {
-            padding: 20px;
-            text-align: center;
-        }
-
-        section {
-            margin-bottom: 30px;
-        }
-
-        h2 {
-            color: #007BFF;
-        }
-
-        .buttons button {
-            margin: 5px;
-            padding: 10px 15px;
-            background-color: #007BFF;
-            color: white;
-            border: none;
-            cursor: pointer;
-            border-radius: 5px;
-        }
-
-        .buttons button:hover {
-            background-color: #0056b3;
-        }
-
-        /* E-Nabız Butonu */
-        .enabiz-button {
-            display: inline-block;
-            margin-top: 20px;
-            padding: 10px 20px;
-            background-color: #28a745;
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
-            font-weight: bold;
-        }
-
-        .enabiz-button:hover {
-            background-color: #218838;
-        }
-
-        /* Footer */
-        footer {
-            background: #333;
-            color: white;
-            text-align: center;
-            padding: 10px 0;
-            margin-top: 20px;
-        }
-    </style>
-</head>
-<body>
-    <header>
-        <nav>
-            <ul>
-                <li><a href="#home">Ana Sayfa</a></li>
-                <li><a href="#about">Hakkımızda</a></li>
-                <li><a href="#services">Hizmetler</a></li>
-                <li><a href="#kadromuz">Kadromuz</a></li>
-                <li><a href="#weather">Hava Durumu</a></li>
-            </ul>
-        </nav>
-    </header>
-
-    <main>
-        <section id="home">
-            <h1>Hoşgeldiniz!</h1>
-            <p>Sitemize hoş geldiniz, burada sizin için en iyi hizmetleri sunuyoruz.</p>
-        </section>
-
-        <section id="kadromuz">
-            <h2>Kadromuz</h2>
-            <div class="buttons">
-                <button onclick="showTeam('54ahb')">54 AHB</button>
-                <button onclick="showTeam('55ahb')">55 AHB</button>
-                <button onclick="showTeam('yardimci')">Yardımcı Çalışanlar</button>
-            </div>
-            <div id="team-info">
-                <p>Burada kadro bilgileri görünecek.</p>
-            </div>
-        </section>
-
-        <section id="weather">
-            <h2>Hava Durumu</h2>
-            <div id="weather-info">
-                <p>Hava durumu yükleniyor...</p>
-            </div>
-        </section>
-
-        <a href="https://enabiz.gov.tr" class="enabiz-button" target="_blank">E-Nabız</a>
-    </main>
-
-    <footer>
-        <p>&copy; 2025 Tüm Hakları Saklıdır.</p>
-    </footer>
-
-    <script>
-        // Kadro Gösterme Fonksiyonu
-        function showTeam(team) {
-            const teamInfo = document.getElementById('team-info');
-            if (team === '54ahb') {
-                teamInfo.innerHTML = '<p>54 AHB kadro bilgileri burada.</p>';
-            } else if (team === '55ahb') {
-                teamInfo.innerHTML = '<p>55 AHB kadro bilgileri burada.</p>';
-            } else if (team === 'yardimci') {
-                teamInfo.innerHTML = '<p>Yardımcı Çalışanlar kadro bilgileri burada.</p>';
-            }
-        }
-
-        // Hava Durumu API'si
-        const apiKey = '253bf9a923e85601072569e495ccbd27'; // Kendi API anahtarınızı buraya ekleyin
-        const weatherInfo = document.getElementById('weather-info');
-
-        async function getWeather() {
-            try {
-                const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=Istanbul&units=metric&appid=${apiKey}`);
-                const data = await response.json();
-                weatherInfo.innerHTML = `
-                    <p>Şehir: ${data.name}</p>
-                    <p>Sıcaklık: ${data.main.temp}°C</p>
-                    <p>Hava: ${data.weather[0].description}</p>
-                `;
-            } catch (error) {
-                weatherInfo.innerHTML = '<p>Hava durumu alınamadı. Lütfen daha sonra tekrar deneyin.</p>';
-            }
-        }
-
-        getWeather();
-    </script>
-</body>
-</html>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Salihli 10 Nolu ASM</title>
+  <!-- Font Awesome CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <style>
+    /* Temel Renk ve Font Ayarları */
+    :root {
+      --primary-color: #2c3e50;
+      --secondary-color: #3498db;
+      --accent-color: #e74c3c;
+      --text-color: #333;
+    }
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      color: var(--text-color);
+      background: #f9f9f9;
+      margin: 0;
+      padding: 0;
+    }
+    /* Header ve Navigasyon */
+    header {
+      background: linear-gradient(rgba(44,62,80,0.9), rgba(44,62,80,0.9)),
+                  url('header-bg.jpg') center/cover;
+      color: white;
+      padding: 1rem;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    .header-content {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+    .logo {
+      height: 80px;
+      margin-right: 20px;
+    }
+    nav ul {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      padding: 1rem;
+      background: var(--primary-color);
+      margin: 0;
+      list-style: none;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-size: 1.1rem;
+      transition: color 0.3s;
+    }
+    nav a:hover {
+      color: var(--secondary-color);
+    }
+    /* Main Bölümler */
+    main {
+      margin: 2rem auto;
+      max-width: 1200px;
+    }
+    /* Landing Bölümü: Büyük ASM Görseli */
+    #landing {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    .asm-large {
+      width: 100%;
+      max-height: 500px;
+      object-fit: cover;
+      border-radius: 10px;
+    }
+    /* Kadromuz Bölümü (Yeni Eklenen) */
+    #kadromuz {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    #kadromuz h2 {
+      color: var(--primary-color);
+      font-size: 2rem;
+      border-bottom: 3px solid var(--secondary-color);
+      padding-bottom: 0.5rem;
+      margin-bottom: 1.5rem;
+    }
+    .kadro-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin: 2rem 0;
+      flex-wrap: wrap;
+    }
+    .kadro-btn {
+      padding: 1rem 2rem;
+      background: var(--primary-color);
+      color: white;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: transform 0.3s;
+      font-size: 1.2rem;
+      cursor: pointer;
+      border: none;
+    }
+    .kadro-btn:hover {
+      transform: translateY(-3px);
+      background: var(--secondary-color);
+    }
+    #team-info {
+      text-align: center;
+      margin-top: 1rem;
+      font-size: 1.1rem;
+    }
+    /* Live Bilgiler Bölümü: e-Nabız, Hava Durumu, Konum */
+    #live-info {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      justify-content: center;
+      padding: 2rem;
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      margin-bottom: 2rem;
+    }
+    .live-item {
+      flex: 1;
+      min-width: 280px;
+      text-align: center;
+    }
+    /* e-Nabız Görsel Butonu */
+    .enabiz-logo {
+      width: 150px;
+      transition: transform 0.3s;
+    }
+    .enabiz-logo:hover {
+      transform: scale(1.05);
+    }
+    /* Hava Durumu */
+    .weather-display .weather-info {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      font-size: 1.2rem;
+      margin-top: 0.5rem;
+    }
+    .weather-icon {
+      width: 60px; /* Eski değere göre 1.5 kat büyütüldü (örneğin, önce 40px ise şimdi 60px) */
+      height: 60px;
+    }
+    .temperature {
+      font-size: 2.5rem;
+      font-weight: bold;
+    }
+    /* Konum (iframe) */
+    .map-display iframe {
+      border-radius: 8px;
+      margin-top: 1rem;
+    }
+    /* Footer */
+    footer {
+      background: var(--primary-color);
+      color: white;
+      text-align: center;
+      padding: 2rem;
+      margin-top: 3rem;
+    }
+    .footer-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+    }
+    .footer-logo {
+      height: 60px;
+    }
+    .social-media a {
+      color: white;
+      font-size: 1.5rem;
+      margin: 0 10px;
+      transition: color 0.3s;
+    }
+    .social-media a:hover {
+      color: var(--secondary-color);
+    }
+    /* Responsive Tasarım */
+    @media (max-width: 768px) {
+      #live-info {\n        flex-direction: column;\n      }\n      .kadro-buttons {\n        flex-direction: column;\n      }\n    }\n  </style>\n</head>\n<body>\n  <header>\n    <div class=\"header-content\">\n      <img src=\"logo.png\" alt=\"ASM Logo\" class=\"logo\">\n      <h1>Salihli 10 Nolu Aile Sağlığı Merkezi</h1>\n    </div>\n    <nav>\n      <ul>\n        <li><a href=\"index.html\">Ana Sayfa</a></li>\n        <li><a href=\"hakkimizda.html\">Hakkımızda</a></li>\n        <li><a href=\"hizmetler.html\">Hizmetler</a></li>\n        <li><a href=\"calismasaatleri.html\">Çalışma Saatleri</a></li>\n        <li><a href=\"esnekmesai.html\">Esnek Mesai</a></li>\n        <li><a href=\"ekbilgiler.html\">Ek Bilgiler</a></li>\n        <li><a href=\"iletisim.html\">İletişim</a></li>\n        <li><a href=\"#kadromuz\">Kadromuz</a></li>\n      </ul>\n    </nav>\n  </header>\n\n  <main>\n    <!-- Giriş Bölümü: Büyük ASM Görseli -->\n    <section id=\"landing\">\n      <img src=\"asm-large.jpg\" alt=\"ASM Görsel\" class=\"asm-large\">\n    </section>\n\n    <!-- Kadromuz Bölümü -->\n    <section id=\"kadromuz\">\n      <h2>Kadromuz</h2>\n      <div class=\"kadro-buttons\">\n        <button class=\"kadro-btn\" onclick=\"showTeam('54ahb')\">54 AHB</button>\n        <button class=\"kadro-btn\" onclick=\"showTeam('55ahb')\">55 AHB</button>\n        <button class=\"kadro-btn\" onclick=\"showTeam('yardimci')\">Yardımcı Çalışanlar</button>\n      </div>\n      <div id=\"team-info\">\n        <p>Butona tıkladığınızda kadro bilgileri burada görünecek.</p>\n      </div>\n    </section>\n\n    <!-- Canlı Bilgiler Bölümü: e-Nabız, Hava Durumu, Konum -->\n    <section id=\"live-info\">\n      <!-- e-Nabız Görsel Butonu -->\n      <div class=\"live-item\">\n        <h3>e-Nabız Girişi</h3>\n        <a href=\"https://enabiz.gov.tr/\" target=\"_blank\">\n          <img src=\"enabiz-logo.png\" alt=\"e-Nabız\" class=\"enabiz-logo\">\n        </a>\n      </div>\n      <!-- Gerçek Zamanlı Hava Durumu (OpenWeatherMap API ile güncellenecek) -->\n      <div class=\"live-item weather-display\">\n        <h3>Hava Durumu</h3>\n        <div class=\"weather-info\">\n          <img src=\"sun.png\" alt=\"Hava Durumu\" class=\"weather-icon\">\n          <span class=\"temperature\">--°C</span>\n        </div>\n      </div>\n      <!-- Konum (Google Maps Embed) -->\n      <div class=\"live-item map-display\">\n        <h3>Konum</h3>\n        <iframe src=\"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d780.7696712596367!2d28.119378391371207!3d38.485832217269596!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14b85b006dd4fcf5%3A0x332c249013eccff7!2zRHIuIEhheWRhciBLYXlhIEFpbGUgU2HEn2zEscSfxLEgTWVya2V6aQ!5e0!3m2!1str!2str!4v1738863175586!5m2!1str!2str\" \n                width=\"100%\" \n                height=\"300\" \n                style=\"border:0;\" \n                allowfullscreen=\"\" \n                loading=\"lazy\" \n                referrerpolicy=\"no-referrer-when-downgrade\">\n        </iframe>\n      </div>\n    </section>\n  </main>\n\n  <footer>\n    <div class=\"footer-content\">\n      <img src=\"saglik-bakanligi-logo.png\" alt=\"Sağlık Bakanlığı Logo\" class=\"footer-logo\">\n      <p>&copy; 2025 Salihli 10 Nolu ASM | Tüm Hakları Saklıdır</p>\n      <div class=\"social-media\">\n        <a href=\"#\"><i class=\"fab fa-facebook\"></i></a>\n        <a href=\"#\"><i class=\"fab fa-twitter\"></i></a>\n        <a href=\"#\"><i class=\"fab fa-instagram\"></i></a>\n      </div>\n    </div>\n  </footer>\n\n  <script>\n    // Kadro Sekmesi Buton Fonksiyonu\n    function showTeam(team) {\n      const teamInfo = document.getElementById('team-info');\n      if (team === '54ahb') {\n        teamInfo.innerHTML = '<p>54 AHB kadro bilgileri burada.</p>';\n      } else if (team === '55ahb') {\n        teamInfo.innerHTML = '<p>55 AHB kadro bilgileri burada.</p>';\n      } else if (team === 'yardimci') {\n        teamInfo.innerHTML = '<p>Yardımcı Çalışanlar kadro bilgileri burada.</p>';\n      }\n    }\n\n    // Hava Durumu API Entegrasyonu (OpenWeatherMap)\n    const apiKey = '253bf9a923e85601072569e495ccbd27'; // Kendi API anahtarınızı buraya ekleyin\n    const city = 'Manisa,TR';\n    const weatherUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiKey}`;\n\n    fetch(weatherUrl)\n      .then(response => response.json())\n      .then(data => {\n         const temp = Math.round(data.main.temp);\n         document.querySelector('.temperature').textContent = temp + '°C';\n         const iconCode = data.weather[0].icon;\n         document.querySelector('.weather-icon').src = `https://openweathermap.org/img/wn/${iconCode}@2x.png`;\n         document.querySelector('.weather-icon').alt = data.weather[0].description;\n      })\n      .catch(error => console.error('Hata:', error));\n  </script>\n</body>\n</html>\n```\n\n**Açıklamalar:**\n- Üst menüde diğer sayfalarla birlikte "Kadromuz" sekmesi eklendi.\n- Ana sayfada önce büyük ASM görseli (landing), ardından Kadromuz bölümü yer alıyor. Kadromuz bölümünde 3 buton (54 AHB, 55 AHB, Yardımcı Çalışanlar) bulunuyor; butonlara tıklandığında dinamik olarak ilgili kadro bilgileri gösteriliyor (örnek içerik).\n- Live-info bölümünde e‑Nabız butonu (görsel), hava durumu (Manisa için API entegrasyonlu; hava ikonunun boyutu 60px olarak ayarlandı) ve konum (Google Maps embed) yer alıyor.\n- Tasarımın klasik lacivert teması korunmuştur (header, nav, footer renkleri vs.).\n\nLütfen API anahtarınızı `YOUR_API_KEY_HERE` kısmına ekleyin ve ilgili görsellerin doğru dosya adlarına sahip olduğundan emin olun. Herhangi bir ek isteğiniz olursa yardımcı olmaktan memnuniyet duyarım!
