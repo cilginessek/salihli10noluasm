@@ -1,87 +1,60 @@
 <!DOCTYPE html>
-<html lang="tr">
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Salihli 10 Nolu ASM</title>
-  <link rel="stylesheet" href="styles.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Salihli ASM</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <header>
-    <div class="header-content">
-      <img src="logo.png" alt="ASM Logo" class="logo">
-      <h1>Salihli 10 Nolu Aile Sağlığı Merkezi</h1>
-    </div>
-    <nav>
-      <ul>
-        <li><a href="index.html"><i class="fas fa-home"></i> Ana Sayfa</a></li>
-        <li><a href="kadromuz.html"><i class="fas fa-users"></i> Kadromuz</a></li>
-        <li><a href="hizmetler.html"><i class="fas fa-hand-holding-medical"></i> Hizmetler</a></li>
-        <li><a href="calismasaatleri.html"><i class="fas fa-clock"></i> Çalışma Saatleri</a></li>
-        <li><a href="esnekmesai.html"><i class="fas fa-calendar-alt"></i> Esnek Mesai</a></li>
-        <li><a href="ekbilgiler.html"><i class="fas fa-info"></i> Ek Bilgiler</a></li>
-        <li><a href="iletisim.html"><i class="fas fa-phone"></i> İletişim</a></li>
-      </ul>
-    </nav>
-  </header>
-
-  <main>
-    <section id="landing">
-      <img src="asm-large.jpg" alt="ASM Görsel" class="asm-large">
-    </section>
-
-    <!-- Canlı Bilgiler Bölümü -->
-    <section id="live-info">
-      <div class="live-item">
-        <h3>e-Nabız Girişi</h3>
-        <a href="https://enabiz.gov.tr/" target="_blank">
-          <img src="enabiz-logo.png" alt="e-Nabız" class="enabiz-logo">
-        </a>
-      </div>
-      <div class="live-item weather-display">
-        <h3>Hava Durumu</h3>
-        <div class="weather-info">
-          <img src="sun.png" alt="Hava Durumu" class="weather-icon">
-          <span class="temperature">--°C</span>
+    <header>
+        <div class="container">
+            <h1>Salihli 10 Nolu ASM</h1>
         </div>
-      </div>
-      <div class="live-item map-display">
-        <h3>Konum</h3>
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d780.7696712596367!2d28.119378391371207!3d38.485832217269596!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14b85b006dd4fcf5%3A0x332c249013eccff7!2zRHIuIEhheWRhciBLYXlhIEFpbGUgU2HEn2zEscSfxLEgTWVya2V6aQ!5e0!3m2!1str!2str!4v1738863175586!5m2!1str!2str" 
-                width="100%" 
-                height="300" 
-                style="border:0;" 
-                allowfullscreen="" 
-                loading="lazy" 
-                referrerpolicy="no-referrer-when-downgrade">
-        </iframe>
-      </div>
-    </section>
-  </main>
+    </header>
 
-  <footer>
-    <div class="footer-content">
-      <img src="saglik-bakanligi-logo.png" alt="Sağlık Bakanlığı Logo" class="footer-logo">
-      <p>&copy; 2025 Salihli 10 Nolu ASM | Tüm Hakları Saklıdır</p>
-    </div>
-  </footer>
+    <main>
+        <section class="weather-display">
+            <h2>Hava Durumu</h2>
+            <div class="weather-info">
+                <img src="weather-icon.png" alt="Weather Icon" class="weather-icon">
+                <div class="temperature">25&deg;C</div>
+                <div>Salihli, Türkiye</div>
+            </div>
+        </section>
 
-  <script>
-    const apiKey = '253bf9a923e85601072569e495ccbd27';
-    const city = 'Manisa,TR';
-    const weatherUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiKey}`;
+        <section class="kadro-buttons">
+            <a href="#54ahb" class="kadro-btn">54 AHB</a>
+            <a href="#55ahb" class="kadro-btn">55 AHB</a>
+            <a href="#yardimcilar" class="kadro-btn">Yardımcı Çalışanlar</a>
+        </section>
 
-    fetch(weatherUrl)
-      .then(response => response.json())
-      .then(data => {
-         const temp = Math.round(data.main.temp);
-         document.querySelector('.temperature').textContent = temp + '°C';
-         const iconCode = data.weather[0].icon;
-         document.querySelector('.weather-icon').src = `https://openweathermap.org/img/wn/${iconCode}@2x.png`;
-         document.querySelector('.weather-icon').alt = data.weather[0].description;
-      })
-      .catch(error => console.error('Hata:', error));
-  </script>
+        <section id="54ahb" class="kadro-section">
+            <h2>54 AHB Kadrosu</h2>
+            <div class="personnel">
+                <!-- 54 AHB personel bilgileri buraya eklenecek -->
+            </div>
+        </section>
+
+        <section id="55ahb" class="kadro-section">
+            <h2>55 AHB Kadrosu</h2>
+            <div class="personnel">
+                <!-- 55 AHB personel bilgileri buraya eklenecek -->
+            </div>
+        </section>
+
+        <section id="yardimcilar" class="kadro-section">
+            <h2>Yardımcı Çalışanlar</h2>
+            <div class="personnel">
+                <!-- Yardımcı personel bilgileri buraya eklenecek -->
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Salihli 10 Nolu ASM. Tüm hakları saklıdır.</p>
+        </div>
+    </footer>
 </body>
 </html>
