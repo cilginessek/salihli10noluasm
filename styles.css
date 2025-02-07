@@ -1,228 +1,68 @@
-:root {
-  --primary-color: #2c3e50;
-  --secondary-color: #3498db;
-  --accent-color: #e74c3c;
-  --text-color: #333;
-}
-
 body {
-  font-family: 'Arial', sans-serif;
-  line-height: 1.6;
-  color: var(--text-color);
-  background: #f9f9f9;
-  margin: 0;
-  padding: 0;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
 }
 
-/* Header ve Navigasyon */
 header {
-  background: linear-gradient(rgba(44,62,80,0.9), rgba(44,62,80,0.9)),
-              url('header-bg.jpg') center/cover;
-  color: white;
-  padding: 1rem;
-  position: sticky;
-  top: 0;
-  z-index: 1000;
+    background: #333;
+    color: #fff;
+    padding: 10px 0;
 }
 
-.header-content {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
+header nav ul {
+    list-style: none;
+    text-align: center;
+    padding: 0;
+    margin: 0;
 }
 
-.logo {
-  height: 80px;
-  margin-right: 20px;
+header nav ul li {
+    display: inline;
+    margin: 0 15px;
 }
 
-nav ul {
-  display: flex;
-  justify-content: center;
-  gap: 2rem;
-  padding: 1rem;
-  background: var(--primary-color);
-  margin: 0;
-  list-style: none;
+header nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
 }
 
-nav a {
-  color: white;
-  text-decoration: none;
-  font-size: 1.1rem;
-  transition: color 0.3s;
-}
-
-nav a:hover {
-  color: var(--secondary-color);
-}
-
-/* Main Bölümler */
 main {
-  margin: 2rem auto;
-  max-width: 1200px;
+    padding: 20px;
+    text-align: center;
 }
 
-/* Landing: Büyük ASM Görseli */
-#landing {
-  text-align: center;
-  margin-bottom: 2rem;
-}
-.asm-large {
-  width: 100%;
-  max-height: 500px;
-  object-fit: cover;
-  border-radius: 10px;
-}
-
-/* AHB Birimleri Kutuları */
-#ahb-units {
-  text-align: center;
-  margin-bottom: 2rem;
-}
-.ahb-units {
-  display: flex;
-  gap: 2rem;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-.ahb-card {
-  background: #f8f9fa;
-  padding: 1.5rem;
-  border-radius: 10px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-  flex: 1;
-  min-width: 300px;
-  text-align: center;
-  margin-bottom: 1rem;
-}
-.doctor-img {
-  width: 200px;
-  height: 200px;
-  border-radius: 50%;
-  object-fit: cover;
-  margin: 1rem auto;
-  border: 3px solid var(--secondary-color);
-}
-
-/* Ortak Çalışanlar Kutusu */
-#yardimci-calisanlar {
-  text-align: center;
-  margin-bottom: 2rem;
-}
-.ortak-calisan {
-  margin: 0 auto;
-  max-width: 600px;
-  padding: 1rem;
-  background: #f8f9fa;
-  border-radius: 10px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-}
-
-/* Live Bilgiler Bölümü (e-Nabız, Hava Durumu, Konum) */
-#live-info {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 2rem;
-  justify-content: center;
-  padding: 2rem;
-  background: #fff;
-  border-radius: 10px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-  margin-bottom: 2rem;
-}
-
-.live-item {
-  flex: 1;
-  min-width: 280px;
-  text-align: center;
-}
-
-/* e-Nabız Görsel Butonu */
-.enabiz-logo {
-  width: 150px;
-  transition: transform 0.3s;
-}
-.enabiz-logo:hover {
-  transform: scale(1.05);
-}
-
-/* Hava Durumu */
-.weather-display .weather-info {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-  font-size: 1.2rem;
-  margin-top: 0.5rem;
-}
-.weather-icon {
-  width: 40px;
-  height: 40px;
-}
-
-/* Konum (iframe) */
-.map-display iframe {
-  border-radius: 8px;
-  margin-top: 1rem;
-}
-
-/* Genel Section Stilleri */
 section {
-  padding: 2rem;
-  margin: 2rem auto;
-  background: white;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-  border-radius: 10px;
+    margin-bottom: 20px;
 }
 
-/* Footer */
+.weather-image {
+    width: 50%;
+    height: auto;
+}
+
+.buttons button {
+    margin: 5px;
+    padding: 10px 15px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.buttons button:hover {
+    background-color: #0056b3;
+}
+
 footer {
-  background: var(--primary-color);
-  color: white;
-  text-align: center;
-  padding: 2rem;
-  margin-top: 3rem;
-}
-.footer-content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1rem;
-}
-.footer-logo {
-  height: 60px;
-}
-.social-media a {
-  color: white;
-  font-size: 1.5rem;
-  margin: 0 10px;
-  transition: color 0.3s;
-}
-.social-media a:hover {
-  color: var(--secondary-color);
-}
-
-/* Responsive Tasarım */
-@media (max-width: 768px) {
-  .ahb-units {
-    flex-direction: column;
-  }
-  #live-info {
-    flex-direction: column;
-  }
-  .contact-container {
-    flex-direction: column;
-  }
-}
-/* Tam ekran resim için stil */
-.full-width-img {
-  width: 100%; /* Resmi sayfanın genişliğine sığdırır */
-  height: auto; /* Oranları korur */
-  max-width: 1200px; /* Maksimum genişlik sınırı */
-  margin: 2rem auto; /* Üst ve alt boşluk, otomatik yatay hizalama */
-  display: block; /* Resmi blok öğe yapar */
-  border-radius: 10px; /* Köşeleri yuvarlar */
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Hafif gölge efekti */
+    background: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
 }
