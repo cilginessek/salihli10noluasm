@@ -5,49 +5,62 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kadromuz</title>
     <style>
+        /* Genel Stil */
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Arial', sans-serif;
             margin: 0;
             padding: 0;
-            line-height: 1.6;
+            background-color: #f4f4f9;
+            color: #333;
         }
 
+        /* Başlık ve Menü */
         header {
-            background: #333;
-            color: #fff;
+            background: #007BFF;
+            color: white;
             padding: 10px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
         }
 
-        header nav ul {
+        nav ul {
             list-style: none;
             text-align: center;
-            padding: 0;
             margin: 0;
+            padding: 0;
         }
 
-        header nav ul li {
-            display: inline;
+        nav ul li {
+            display: inline-block;
             margin: 0 15px;
         }
 
-        header nav ul li a {
-            color: #fff;
+        nav ul li a {
+            color: white;
             text-decoration: none;
             font-weight: bold;
+            padding: 5px 10px;
         }
 
+        nav ul li a:hover {
+            background: white;
+            color: #007BFF;
+            border-radius: 5px;
+        }
+
+        /* Ana Bölüm */
         main {
             padding: 20px;
             text-align: center;
         }
 
         section {
-            margin-bottom: 20px;
+            margin-bottom: 30px;
         }
 
-        .weather-image {
-            width: 50%;
-            height: auto;
+        h2 {
+            color: #007BFF;
         }
 
         .buttons button {
@@ -64,14 +77,29 @@
             background-color: #0056b3;
         }
 
+        /* E-Nabız Butonu */
+        .enabiz-button {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #28a745;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+
+        .enabiz-button:hover {
+            background-color: #218838;
+        }
+
+        /* Footer */
         footer {
             background: #333;
-            color: #fff;
+            color: white;
             text-align: center;
             padding: 10px 0;
-            position: fixed;
-            bottom: 0;
-            width: 100%;
+            margin-top: 20px;
         }
     </style>
 </head>
@@ -82,8 +110,8 @@
                 <li><a href="#home">Ana Sayfa</a></li>
                 <li><a href="#about">Hakkımızda</a></li>
                 <li><a href="#services">Hizmetler</a></li>
-                <li><a href="#contact">İletişim</a></li>
                 <li><a href="#kadromuz">Kadromuz</a></li>
+                <li><a href="#weather">Hava Durumu</a></li>
             </ul>
         </nav>
     </header>
@@ -108,8 +136,12 @@
 
         <section id="weather">
             <h2>Hava Durumu</h2>
-            <img src="weather.png" alt="Hava Durumu" class="weather-image">
+            <div id="weather-info">
+                <p>Hava durumu yükleniyor...</p>
+            </div>
         </section>
+
+        <a href="https://enabiz.gov.tr" class="enabiz-button" target="_blank">E-Nabız</a>
     </main>
 
     <footer>
@@ -117,6 +149,7 @@
     </footer>
 
     <script>
+        // Kadro Gösterme Fonksiyonu
         function showTeam(team) {
             const teamInfo = document.getElementById('team-info');
             if (team === '54ahb') {
@@ -127,6 +160,26 @@
                 teamInfo.innerHTML = '<p>Yardımcı Çalışanlar kadro bilgileri burada.</p>';
             }
         }
+
+        // Hava Durumu API'si
+        const apiKey = '253bf9a923e85601072569e495ccbd27'; // Kendi API anahtarınızı buraya ekleyin
+        const weatherInfo = document.getElementById('weather-info');
+
+        async function getWeather() {
+            try {
+                const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=Istanbul&units=metric&appid=${apiKey}`);
+                const data = await response.json();
+                weatherInfo.innerHTML = `
+                    <p>Şehir: ${data.name}</p>
+                    <p>Sıcaklık: ${data.main.temp}°C</p>
+                    <p>Hava: ${data.weather[0].description}</p>
+                `;
+            } catch (error) {
+                weatherInfo.innerHTML = '<p>Hava durumu alınamadı. Lütfen daha sonra tekrar deneyin.</p>';
+            }
+        }
+
+        getWeather();
     </script>
 </body>
 </html>
