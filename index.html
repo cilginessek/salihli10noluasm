@@ -5,11 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Salihli 10 Nolu ASM</title>
   <link rel="stylesheet" href="styles.css">
-  <!-- Font Awesome CDN -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
-  <!-- Header ve Navigasyon -->
   <header>
     <div class="header-content">
       <img src="logo.png" alt="ASM Logo" class="logo">
@@ -33,10 +31,10 @@
     <section id="landing">
       <img src="asm-large.jpg" alt="ASM Görsel" class="asm-large">
     </section>
-    
-    <!-- AHB Birimleri: İki Kutu -->
-    <section id="ahb-units">
-      <h2>AHB Birimleri</h2>
+
+    <!-- Kadromuz Bölümü -->
+    <section id="kadromuz">
+      <h2><i class="fas fa-users"></i> Kadromuz</h2>
       <div class="ahb-units">
         <div class="ahb-card">
           <h3>54 Nolu AHB</h3>
@@ -55,28 +53,23 @@
           </ul>
         </div>
       </div>
-    </section>
-    
-    <!-- Ortak Çalışanlar Kutusu -->
-    <section id="yardimci-calisanlar">
-      <h2><i class="fas fa-users"></i> Ortak Çalışanlar</h2>
       <div class="ahb-card ortak-calisan">
+        <h3>Yardımcı Çalışanlar</h3>
         <ul>
-          <li><strong>Yardımcı Çalışanlar:</strong> AKİLE URSAVAŞ, SİBEL YAZICI</li>
+          <li>AKİLE URSAVAŞ</li>
+          <li>SİBEL YAZICI</li>
         </ul>
       </div>
     </section>
-    
-    <!-- Ana Sayfanın En Altında Canlı Bilgiler Bölümü -->
+
+    <!-- Canlı Bilgiler Bölümü -->
     <section id="live-info">
-      <!-- e-Nabız Görsel Butonu -->
       <div class="live-item">
         <h3>e-Nabız Girişi</h3>
         <a href="https://enabiz.gov.tr/" target="_blank">
           <img src="enabiz-logo.png" alt="e-Nabız" class="enabiz-logo">
         </a>
       </div>
-      <!-- Gerçek Zamanlı Hava Durumu (OpenWeatherMap API ile güncellenecek) -->
       <div class="live-item weather-display">
         <h3>Hava Durumu</h3>
         <div class="weather-info">
@@ -84,7 +77,6 @@
           <span class="temperature">--°C</span>
         </div>
       </div>
-      <!-- Konum (Google Maps Embed: Güncellenmiş iframe) -->
       <div class="live-item map-display">
         <h3>Konum</h3>
         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d780.7696712596367!2d28.119378391371207!3d38.485832217269596!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14b85b006dd4fcf5%3A0x332c249013eccff7!2zRHIuIEhheWRhciBLYXlhIEFpbGUgU2HEn2zEscSfxLEgTWVya2V6aQ!5e0!3m2!1str!2str!4v1738863175586!5m2!1str!2str" 
@@ -97,24 +89,17 @@
         </iframe>
       </div>
     </section>
-    
   </main>
 
   <footer>
     <div class="footer-content">
       <img src="saglik-bakanligi-logo.png" alt="Sağlık Bakanlığı Logo" class="footer-logo">
       <p>&copy; 2025 Salihli 10 Nolu ASM | Tüm Hakları Saklıdır</p>
-      <div class="social-media">
-        <a href="#"><i class="fab fa-facebook"></i></a>
-        <a href="#"><i class="fab fa-twitter"></i></a>
-        <a href="#"><i class="fab fa-instagram"></i></a>
-      </div>
     </div>
   </footer>
-  
-  <!-- Hava Durumu API Entegrasyonu (OpenWeatherMap Örneği) -->
+
   <script>
-    const apiKey = '253bf9a923e85601072569e495ccbd27'; // OpenWeatherMap API anahtarınızı buraya ekleyin
+    const apiKey = '253bf9a923e85601072569e495ccbd27';
     const city = 'Manisa,TR';
     const weatherUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiKey}`;
 
@@ -123,7 +108,6 @@
       .then(data => {
          const temp = Math.round(data.main.temp);
          document.querySelector('.temperature').textContent = temp + '°C';
-
          const iconCode = data.weather[0].icon;
          document.querySelector('.weather-icon').src = `https://openweathermap.org/img/wn/${iconCode}@2x.png`;
          document.querySelector('.weather-icon').alt = data.weather[0].description;
