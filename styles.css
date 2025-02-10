@@ -5,6 +5,7 @@
   --text-color: #333;
 }
 
+/* Body ve Temel Stiller */
 body {
   font-family: 'Arial', sans-serif;
   line-height: 1.6;
@@ -14,15 +15,14 @@ body {
   padding: 0;
 }
 
-/* Header */
+/* Sabit Header */
 header {
   background: linear-gradient(rgba(44,62,80,0.9), rgba(44,62,80,0.9)),
               url('header-bg.jpg') center/cover;
   color: white;
   padding: 1rem;
-  position: fixed;
+  position: sticky;
   top: 0;
-  width: 100%;
   z-index: 1000;
   box-shadow: 0 2px 10px rgba(0,0,0,0.1);
 }
@@ -32,46 +32,27 @@ header {
   align-items: center;
   justify-content: center;
   text-align: center;
-  min-height: 80px; /* Logo yüksekliği + padding */
+  min-height: 80px;
 }
 
-body {
-  font-family: 'Arial', sans-serif;
-  line-height: 1.6;
-  color: var(--text-color);
-  background: #f9f9f9;
-  margin: 0;
-  padding: 120px 0 0; /* Üst padding: header yüksekliği */
+.logo {
+  height: 80px;
+  margin-right: 20px;
 }
 
-/* Responsive ayar */
-@media (max-width: 768px) {
-  header {
-    padding: 0.5rem;
-  }
-  
-  .header-content {
-    flex-direction: column;
-    min-height: auto;
-  }
-  
-  .logo {
-    margin: 0 0 10px;
-    height: 60px;
-  }
-  
-  body {
-    padding-top: 140px; /* Mobilde header daha yüksek olabilir */
-  }
+/* Sabit Navigasyon */
+nav {
+  position: sticky;
+  top: 112px; /* Header yüksekliği: 80px logo + 2*16px padding */
+  z-index: 999;
+  background: var(--primary-color);
 }
 
-/* Navigasyon */
 nav ul {
   display: flex;
   justify-content: center;
   gap: 2rem;
   padding: 1rem;
-  background: var(--primary-color);
   margin: 0;
   list-style: none;
 }
@@ -94,6 +75,7 @@ nav a:hover {
   position: relative;
   max-height: 70vh;
   background: #f0f0f0;
+  margin-top: 144px; /* Header + Navigasyon yüksekliği */
 }
 
 .slider {
@@ -107,14 +89,6 @@ nav a:hover {
   object-fit: cover;
   object-position: center center;
   flex-shrink: 0;
-}
-
-@media (max-width: 768px) {
-  .slider-container,
-  .slide {
-    height: 50vh;
-    max-height: 400px;
-  }
 }
 
 /* Kadromuz Bölümü */
@@ -227,7 +201,6 @@ footer {
   color: white;
   text-align: center;
   padding: 2rem;
-  margin-top: 3rem;
 }
 
 .footer-content {
@@ -242,14 +215,39 @@ footer {
 
 /* Responsive Tasarım */
 @media (max-width: 768px) {
+  .slider-container {
+    margin-top: 176px; /* Mobilde header yüksekliği artabilir */
+    height: 50vh;
+  }
+
+  .slide {
+    height: 50vh;
+  }
+
+  nav {
+    top: 132px; /* Mobil header yüksekliği */
+  }
+
+  nav ul {
+    flex-wrap: wrap;
+    gap: 1rem;
+    padding: 0.5rem;
+  }
+
+  .header-content {
+    flex-direction: column;
+    min-height: auto;
+  }
+
+  .logo {
+    margin: 0 0 10px;
+    height: 60px;
+  }
+
   .kadro-grid {
     grid-template-columns: 1fr;
   }
-  
-  nav ul {
-    flex-wrap: wrap;
-  }
-  
+
   .kisi-img {
     height: 250px;
   }
