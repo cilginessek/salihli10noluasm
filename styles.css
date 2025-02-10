@@ -260,6 +260,12 @@ footer {
   .kisi-img {
     height: 200px; /* Mobilde daha kısa boy */
   }
+
+    .hakkimizda-resimler img {
+    width: 100%;
+    height: auto;
+    max-height: 600px;
+  }
 }
 /* HİZMETLER BÖLÜMÜ RESİM STİLİ */
 .hizmet-resmi {
@@ -273,19 +279,20 @@ footer {
   border: 3px solid var(--secondary-color);
 }
 
-/* Hakkımızda Resim Stilleri */
+/* Hakkımızda Resimleri */
 .hakkimizda-resimler {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: 2rem;
   margin: 3rem 0;
 }
 
 .hakkimizda-resimler img {
-  width: 100%;
-  height: 250px;
+  width: 900px;
+  height: 1200px;
   object-fit: cover;
-  border-radius: 10px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-  border: 2px solid var(--secondary-color);
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+  border: 3px solid var(--secondary-color);
 }
