@@ -28,15 +28,14 @@
 
   <main>
     <!-- Slider Bölümü -->
-   <div class="slider-container">
-  <div class="slider">
-    <!-- Resimlerinize base64 encoded placeholder ekleyin veya gerçek yollarını kontrol edin -->
-    <img src="asm1.jpg" class="slide active" alt="ASM 1">
-    <img src="asm2.jpg" class="slide" alt="ASM 2">
-    <img src="asm3.jpg" class="slide" alt="ASM 3">
-    <img src="asm4.jpg" class="slide" alt="ASM 4">
-  </div>
-</div>
+    <div class="slider-container">
+      <div class="slider">
+        <img src="asm1.jpg" class="slide" alt="ASM Görsel 1">
+        <img src="asm2.jpg" class="slide" alt="ASM Görsel 2">
+        <img src="asm3.jpg" class="slide" alt="ASM Görsel 3">
+        <img src="asm4.jpg" class="slide" alt="ASM Görsel 4">
+      </div>
+    </div>
 
     <!-- Kadromuz Bölümü -->
     <section id="kadromuz">
@@ -135,21 +134,27 @@
   </footer>
 
   <script>
-// Slider JavaScript
-let currentSlide = 0;
-const slider = document.querySelector('.slider');
-const slides = document.querySelectorAll('.slide');
-const totalSlides = slides.length;
+    // Slider JavaScript
+    let currentSlide = 0;
+    const slider = document.querySelector('.slider');
+    const slides = document.querySelectorAll('.slide');
+    const totalSlides = slides.length;
 
-function nextSlide() {
-  slides[currentSlide].classList.remove('active');
-  currentSlide = (currentSlide + 1) % totalSlides;
-  slides[currentSlide].classList.add('active');
-  slider.style.transform = `translateX(-${currentSlide * 100}%)`;
-}
+    function nextSlide() {
+      currentSlide = (currentSlide + 1) % totalSlides;
+      
+      if(currentSlide === 0) {
+        setTimeout(() => {
+          slider.style.transition = 'none';
+          slider.style.transform = 'translateX(0)';
+        }, 800);
+      }
+      
+      slider.style.transition = 'transform 0.8s cubic-bezier(0.4, 0, 0.2, 1)';
+      slider.style.transform = `translateX(-${currentSlide * 100}%)`;
+    }
 
-setInterval(nextSlide, 5000);
-
+    setInterval(nextSlide, 5000);
 
     // Hava Durumu API
     const apiKey = '253bf9a923e85601072569e495ccbd27';
