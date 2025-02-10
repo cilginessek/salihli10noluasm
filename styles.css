@@ -221,3 +221,48 @@ footer {
     height: 250px;
   }
 }
+/* Ek Bilgiler Sayfası Özel Stilleri */
+.ek-bilgi {
+  background: white;
+  padding: 2rem;
+  margin: 2rem auto;
+  max-width: 1200px;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.ek-bilgi h2 {
+  color: #2c3e50;
+  border-bottom: 2px solid #3498db;
+  padding-bottom: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.konum-bilgisi {
+  margin: 1rem 0;
+}
+
+.adres {
+  background: #f8f9fa;
+  padding: 1.5rem;
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+}
+
+.adres p {
+  margin: 0.5rem 0;
+  font-size: 1.1rem;
+}
+
+.adres strong {
+  color: #2c3e50;
+}
+
+.adres a {
+  color: #3498db;
+  text-decoration: none;
+}
+
+.adres a:hover {
+  text-decoration: underline;
+}
