@@ -21,6 +21,7 @@ header {
               url('header-bg.jpg') center/cover;
   color: white;
   padding: 1rem;
+  position: -webkit-sticky; /* Safari uyumluluğu */
   position: sticky;
   top: 0;
   z-index: 1000;
@@ -42,6 +43,7 @@ header {
 
 /* Sabit Navigasyon */
 nav {
+  position: -webkit-sticky;
   position: sticky;
   top: 112px; /* Header yüksekliği: 80px logo + 2*16px padding */
   z-index: 999;
@@ -251,4 +253,15 @@ footer {
   .kisi-img {
     height: 250px;
   }
+}
+/* HİZMETLER BÖLÜMÜ RESİM STİLİ */
+.hizmet-resmi {
+  width: 100%;
+  max-width: 800px;
+  height: auto;
+  margin: 2rem auto;
+  display: block;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+  border: 3px solid var(--secondary-color);
 }
