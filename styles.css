@@ -296,3 +296,28 @@ footer {
   box-shadow: 0 4px 15px rgba(0,0,0,0.2);
   border: 3px solid var(--secondary-color);
 }
+/* Hizmetler Sayfası Özel Stilleri */
+.hizmet-listesi {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+.hizmet-listesi li {
+  margin-bottom: 1.5rem;
+  padding: 1rem;
+  background: #f8f9fa;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.hizmet-listesi strong {
+  color: var(--primary-color);
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.hizmet-listesi ul {
+  margin: 0.5rem 0 0 1.5rem;
+  list-style-type: circle;
+}
